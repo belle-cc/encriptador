@@ -1,0 +1,78 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #fafafa;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+  }
+
+  #logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-family: sans-serif; /* Cambia la fuente según tus preferencias */
+    font-size: 100px; /* Ajusta el tamaño de la letra según tus preferencias */
+    color: #e75d87; /* Cambia el color según tus preferencias */
+    font-weight: bold;
+    text-transform: lowercase;
+  }
+  
+  
+  h1 {
+    color: #e75d87;
+    font-size: 32px;
+  }
+  
+  #contenedor {
+    display: flex;
+    justify-content: center;
+  }
+  
+  #formulario {
+    margin-right: 20px;
+  }
+  
+  label {
+    font-weight: bold;
+    color: #e75d87;
+    font-size: 18px;
+  }
+  
+  textarea {
+    width: 300px;
+    height: 150px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  input[type="radio"] {
+    margin-right: 5px;
+  }
+  
+  button {
+    padding: 12px 20px;
+    background-color: #e75d87;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  button:hover {
+    background-color: #d4416b;
+  }
+  
+  #resultadoTexto {
+    width: 400px;
+    height: 150px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  

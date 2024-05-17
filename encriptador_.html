@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Encriptador de Texto</title>
+  <link rel="stylesheet" href="encriptadorr_.css">
+  <script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+    <div id="logo">a</div>
+  <h1>Encriptador de Texto</h1>
+  <div id="contenedor">
+    <div id="formulario">
+      <label for="texto">Texto:</label>
+      <br>
+      <textarea id="texto" rows="5"></textarea>
+      <br>
+      <input type="radio" id="encriptarRadio" name="accion" value="encriptar" checked>
+      <label for="encriptarRadio">Encriptar</label>
+      <input type="radio" id="desencriptarRadio" name="accion" value="desencriptar">
+      <label for="desencriptarRadio">Desencriptar</label>
+      <br>
+      <button onclick="realizarAccion()">Realizar Acción</button>
+      <button onclick="copiarResultado()">Copiar</button>
+    </div>
+    <div id="resultado">
+      <label for="resultadoTexto">Resultado:</label>
+      <br>
+      <textarea id="resultadoTexto" rows="5" readonly></textarea>
+    </div>
+  </div>
+</body>
+</html>
+<script>
+  function encriptarTexto(texto) {
+  let textoEncriptado = "";
+  
+  for (let i = 0; i < texto.length; i++) {
+    let char = texto[i];
+    
+    switch (char) {
+      case 'e':
+        char = "enter";
+        break;
+      case 'i':
+        char = "imes";
+        break;
+      case 'a':
+        char = "ai";
+        break;
+      case 'o':
+        char = "ober";
+        break;
+      case 'u':
+        char = "ufat";
+        break;
+    }
+    
+    textoEncriptado += char;
+  }
+  
+  return textoEncriptado;
+}
+
+function desencriptarTexto(texto) {
+  let textoDesencriptado = "";
+  let i = 0;
+  
+  while (i < texto.length) {
+    let char = texto[i];
+    
+    if (char === 'e') {
+      if (texto.substring(i, i + 5) === "enter") {
+        char = "e";
+        i += 4;
+      }
+    } else if (char === 'i') {
+      if (texto.substring(i, i + 4) === "imes") {
+        char = "i";
+        i += 3;
+      }
+    } else if (char === 'a') {
+      if (texto.substring(i, i + 2) === "ai") {
+        char = "a";
+        i += 1;
+      }
+    } else if (char === 'o') {
+      if (texto.substring(i, i + 4) === "ober") {
+        char = "o";
+        i += 3;
+      }
+    } else if (char === 'u') {
+      if (texto.substring(i, i + 4) === "ufat") {
+        char = "u";
+        i += 3;
+      }
+    }
+    
+    textoDesencriptado += char;
+    i++;
+  }
+  
+  return textoDesencriptado;
+}
+
+function realizarAccion() {
+  let texto = document.getElementById("texto").value;
+  let accion = document.querySelector('input[name="accion"]:checked').value;
+  let resultadoTexto = "";
+
+  if (accion === "encriptar") {
+    resultadoTexto = encriptarTexto(texto);
+  } else if (accion === "desencriptar") {
+    resultadoTexto = desencriptarTexto(texto);
+  }
+
+  document.getElementById("resultadoTexto").value = resultadoTexto;
+}
+
+function copiarResultado() {
+  let resultadoTexto = document.getElementById("resultadoTexto");
+  resultadoTexto.select();
+  resultadoTexto.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  alert("El texto encriptado/desencriptado ha sido copiado al portapapeles.");
+}
+
+       
+</script>
